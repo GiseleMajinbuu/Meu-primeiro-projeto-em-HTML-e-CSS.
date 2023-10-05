@@ -9,6 +9,13 @@
 </head>
 
 <script  src="_javascript/funcoes.js"></script>
+<script>
+  function calc_total(){
+    var qtd = parseInt(document.getElementById('c-Qtd').value);
+    tot = qtd * 1500;
+    document.getElementById('c-PC').value = tot;
+  }
+</script>
 <body>
   <div id="interface">
 
@@ -43,14 +50,14 @@
           <h3 class="direita">Atualizado em 01/Maio/2013</h3>
         </header>
 
-    <form method="post" id="f-contato" action="mailto:contato@cursoemvideo.com">
+    <form method="post" id="f-contato" action="mailto:contato@cursoemvideo.com" oninput="calc_total();">
       <fieldset id="usuario">
         <legend>Identificação do Usuário</legend>
         <p><label for="c-nome">Nome: </label><input type="text" name="t-nome" id="c-nome" size="20" maxlength="30" placeholder="Digite nome completo"/></p>
         <p><label for="c-senha">Senha: </label><input type="password" name="t-senha" id="c-senha" size="8" maxlength="10" placeholder="Digite 8 digítos"/> </p>
         <p><label for="c-email">E-mail:</label> <input type="email" name="t-email" id="c-email" size="20" maxlength="40" placeholder="Digite o seu email"/></p>
         <p><label for="c-data">Data de Nascimento: <input type="date" name="t-data" id="c-data" placeholder="Insira sua data de nascimento"></p>
-        <fieldset>
+        <fieldset id="generos">
           <legend>Sexo:</legend>
               <input type="radio" name="t-genero" id="t-mas"/><label for="t-mas">Masculino</label><br/>
               <input type="radio" name="t-genero" id="t-fem"/><label for="t-fem">Feminino</label><br/>
@@ -85,21 +92,21 @@
 
       <fieldset id="mensagem"><legend>Mensagem do Usuário</legend>
         <p><label for="c-urg">Grau de Urgência: </label> mín<input type="range" name="t-urg" id="c-urg" min="0" max="10" step="2"/>máx</p>
-        <p><label for="c-Msg">Mensagem: </label><textarea name="t-Msg" id="c-Msg" cols="45" rows="5" placeholder="Deixe sua mensagem aqui!"></textarea></p>
+        <p><label for="c-Msg">Mensagem: </label><textarea name="t-Msg" id="c-Msg" cols="35" rows="5" placeholder="Deixe sua mensagem aqui!"></textarea></p>
       </fieldset>
 
       <fieldset id="pedido">
         <legend>Quero um Google Glass</legend>
-        <p>Cor:</p>
-        <p>Quantidade:</p>
-        <p>Preço Total: R$</p>
         <label class="GFG">
           <input type="checkbox" name="checkbox" value="Geeks"/>
             Gostaria de adquirir um Google Glass quando disponível
         </label>
-      </fieldset>
+        <p><label for="c-cor">Cor: </label><input type="color" name="t-cor" id="c-cor" value="#0000FF"/></p>
+        <p><label for="c-Qtd">Quantidade:</label><input type="number" name="t-Qtd" id="c-Qtd" min="0" max="5" value="0"/></p>
+        <p><label for="c-PC">Preço Total: R$</label><input type="number" name="t-PC" id="c-PC" placeholder="Total a pagar...." readonly/></p>
+        </fieldset>
 
-      [BOTÃO ENVIAR]
+        <input type="image" src="_imagens/botao-enviar.png"/>
         </form>
       </article>
 
